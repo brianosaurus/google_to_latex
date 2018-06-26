@@ -160,21 +160,38 @@ s/^.*Keyblocks and Microblocks.*$//
 s/image12.png\}/image12.png}\
 \\caption{Keyblocks and Microblocks}/
 
-s/^.*The Transaction trie.*$//
-s/image10.png\}/image10.png}\
-\\caption{The Transaction trie}/g
+s/\\textbf\{The transaction trie\}$//
+s/^(.*)width=1(.*)image10.png\}/\\begin{figure}[H]\
+\\begin{center}\
+\1width=0.5\2image10.png}\
+\\caption{The Transaction trie}\
+\\end{center}\
+\\end{figure}/
+
 
 s/^.*The Pledge trie.*$//
-s/image9.png\}/image9.png}\
-\\caption{The Pledge trie}/
+s/^(.*)width=1(.*)image9.png\}/\\begin{figure}[H]\
+\\begin{center}\
+\1width=0.5\2image9.png}\
+\\caption{The Pledge trie}\
+\\end{center}\
+\\end{figure}/
 
 s/^.*The Contract trie.*$//
-s/image11.png\}/image11.png}\
-\\caption{The Contract trie}/
+s/^(.*)width=1(.*)image11.png\}/\\begin{figure}[H]\
+\\begin{center}\
+\1width=0.5\2image11.png}\
+\\caption{The Contract trie}\
+\\end{center}\
+\\end{figure}/
 
 s/^.*The contract state trie.*$//
-s/image5.png\}/image5.png}\
-\\caption{The Contract State trie}/
+s/^(.*)width=1(.*)image7.png\}/\\begin{figure}[H]\
+\\begin{center}\
+\1width=0.5\2image7.png}\
+\\caption{The Contract State trie}\
+\\end{center}\
+\\end{figure}/
 
 
 #s/Note that If all TxIn inputs have final/\\break\
@@ -190,9 +207,29 @@ s/^(\\includegraphics.*)$/\\begin{figure}[H]\
 \1\
 \\end{figure}/
   
-# Fixing shortened images
-s/\.jpg\}\\includegraphics/.jpg}\
-\\includegraphics/
+# fix equations
+#s/^\$(.*)\$$/$$\1$$/g
+
+s/NP\(tx\)=NumberofPledgeTermswithinthedefinedexpirationperiod\(E\)\$\$SumPledgeHashesP\(tx\)=VerifiedInterestbearingpledgesinnetwork/$NP(tx)=Number\\, of\\,Pledge\\,Terms\\,within\\,the\\,defined\\,expiration\\,expiration\\,period\\, (E)$$\
+$$Sum\\,Pledge\\,Hashes\\,P(tx)=Verified\\,Interest\\,bearing\\,pledges\\,in\\,network$/
+
+s/^(.*)\$payment=(.*)transactionvalidationanddelegationfees\$$/\1\
+$$payment=\2transaction\\,validation\\,and\\,delegation\\,fees$$/
+s/^(.*)modp.*$/$\1mod\\,p$$/
+s/aggreg.pdf(.*)$/aggreg.pdf\1\\newline/
+s/\$Promiseprivate\\_ k(.)signs(.*)\|\|(.*)\$/$Promise\\,private\\_k\1\\,signs\\,\2\\,||\\,\3$\\newline/g
+s/this is called signer anonymity(.*)$/this is called signer anonymity\1\\newline/
+s/^\$LetG_(.*)$/$LegG_\1\\newline/
+s/^\$Sign(.*)$/$Sign\\,\1\\newline/
+s/^\$Compute(.*)$/$Compute\\,\1\\newline/
+s/^Verify(.*)$/Verify\1\\newline/
+s/^\$\\\prod(.*)$/$\\prod\1\\newline/
+s/The average orphan rate is given by(.*)$/The average orphan rate is given by\1\\newline/
+s/orphanrate(.*)$/orphan\\,rate\1\\newline/g
+s/ten percent can be approximated as(.*)$/ten percent can be approximated as\1\\newline/
+s/The LWMA can be defined by the following equation(.*)$/The LWMA can be defined by the following equation\1\\newline/
+s/Stake required with the LWMA(.*)$/Stake required with the LWMA\1\\newline/
+s/LWMA\\left\(stake(.*)$/LWMA\\left(stake\1\\newline/
 
 
 # this fixes a too long line wuth a URL in it
