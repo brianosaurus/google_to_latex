@@ -224,6 +224,10 @@ s/^\$Sign(.*)$/$Sign\\,\1\\newline/
 s/^\$Compute(.*)$/$Compute\\,\1\\newline/
 s/^Verify(.*)$/Verify\1\\newline/
 s/^\$\\\prod(.*)$/$\\prod\1\\newline/
+s/Promise, the signature scheme is(.*)$/Promise, the signature scheme is\1\\newline/
+s/^\$Borrowerprivate\\_ ksigns(.*)\|\|(.*)\|\|(.*)$/$Borrower\\,private\\_ k\\,signs\1\\,||\\,\2\\,||\\,\3\\newline/
+s/selection of the public key for payment output(.*)$/\1\\newline/
+s/^\$Lenderprivate\\_ ksigns(.*)\|\|(.*)\|\|(.*)\|\|(.*)$/$Lender\\,private\\_ k\\,signs\1\\,||\\,\2\\,||\\,\3\\,||\\,\4\\newline/
 s/The average orphan rate is given by(.*)$/The average orphan rate is given by\1\\newline/
 s/orphanrate(.*)$/orphan\\,rate\1\\newline/g
 s/ten percent can be approximated as(.*)$/ten percent can be approximated as\1\\newline/
